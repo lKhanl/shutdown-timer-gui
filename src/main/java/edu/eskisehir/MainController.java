@@ -37,6 +37,7 @@ public class MainController implements Initializable {
     Map<String, String> map;
     ModeProvider modeProvider;
     int a = 0;
+    private final String OS = System.getProperty("os.name").toLowerCase();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -68,12 +69,25 @@ public class MainController implements Initializable {
             return;
         }
         a = a * 60;
-        String cmd = "shutdown -s -t " + a;
+        String cmd = "";
+        if (isWindows()) {
+            cmd = "shutdown -s -t " + a;
+        } else if (isMac()) {
+            cmd = "sudo shutdown -h +" + a;
+        } else if (isUnix()) {
+            cmd = "shutdown +" + a;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle(map.get("alert_title"));
+            alert.setHeaderText(map.get("undefined_os_header"));
+            alert.showAndWait();
+            System.exit(0);
+        }
+
         Runtime run = Runtime.getRuntime();
         Process pr = run.exec(cmd);
         pr.waitFor();
-        //The computer will shut down after "a" minutes.
-        //Bilgisayar "a" dakika sonra kapanacak!
+
         lbl.setText(map.get("console1") + a / 60 + map.get("console2"));
         txtTime.setText("");
     }
@@ -123,5 +137,19 @@ public class MainController implements Initializable {
         header.setStyle("-fx-text-fill:" + modeProvider.getTextColor());
         lblLang.setStyle("-fx-text-fill:" + modeProvider.getTextColor());
         pane.setStyle("-fx-background-color:" + modeProvider.getBgColor());
+    }
+
+    public boolean isWindows() {
+        return (OS.contains("win"));
+    }
+
+    public boolean isMac() {
+        return (OS.contains("mac"));
+    }
+
+    public boolean isUnix() {
+        return (OS.contains("nix")
+                || OS.contains("nux")
+                || OS.indexOf("aix") > 0);
     }
 }

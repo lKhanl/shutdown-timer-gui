@@ -21,6 +21,7 @@ public class LanguageProvider {
         String alert_title = "";
         String console1 = "";
         String console2 = "";
+        String undefined_os_header = "";
 
         List<String> values = new LinkedList<>();
         List<String> keys = new LinkedList<>();
@@ -37,6 +38,7 @@ public class LanguageProvider {
                 alert_title = "Error";
                 console1 = "The computer will shut down after ";
                 console2 = " minutes!";
+                undefined_os_header = "İşletim sisteminiz tanımlanamadı!";
                 break;
             case TR:
                 header = "Otomatik Bilgisayar Kapatıcı";
@@ -49,6 +51,7 @@ public class LanguageProvider {
                 alert_title = "Hata";
                 console1 = "Bilgisayar ";
                 console2 = " dakika sonra kapanacak!";
+                undefined_os_header = "Undefined Operating System! Please contact us!";
         }
 
         keys.add("header");
@@ -61,6 +64,7 @@ public class LanguageProvider {
         keys.add("alert_title");
         keys.add("console1");
         keys.add("console2");
+        keys.add("undefined_os_header");
 
         values.add(header);
         values.add(stage_title);
@@ -72,6 +76,7 @@ public class LanguageProvider {
         values.add(alert_title);
         values.add(console1);
         values.add(console2);
+        values.add(undefined_os_header);
 
         Map<String, String> map = new HashMap<>();
         for (int i = 0; i < keys.size(); i++) {
