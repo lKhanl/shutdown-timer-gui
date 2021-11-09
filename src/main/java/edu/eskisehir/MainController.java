@@ -9,10 +9,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MainController implements Initializable {
     public Pane pane;
@@ -20,18 +17,23 @@ public class MainController implements Initializable {
     public TextField txtTime;
     public Button btnCancel;
     public Label lbl;
-    public ComboBox<String> comboBox;
+    public ComboBox<Language> comboBox;
+    public Label lblSubTitle;
+    public Label header;
+
+    Map<String, String> map;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        List<String> list = new LinkedList<>();
-        list.add("ENG");
-        list.add("TR");
-
-        ObservableList<String> observableList = FXCollections.observableList(list);
-
+        List<Language> list = new LinkedList<>();
+        list.add(Language.ENG);
+        list.add(Language.TR);
+        ObservableList<Language> observableList = FXCollections.observableList(list);
         comboBox.setItems(observableList);
-        comboBox.getSelectionModel().select("TR");
+        comboBox.getSelectionModel().select(Language.ENG);
+        LanguageProvider languageProvider = new LanguageProvider(Language.ENG);
+        map = languageProvider.getTexts();
+        setTexts();
     }
 
     public void setTimer(ActionEvent actionEvent) throws IOException, InterruptedException {
@@ -67,4 +69,18 @@ public class MainController implements Initializable {
     }
 
 
+    public void selectLanguage(ActionEvent actionEvent) {
+        Language selected = comboBox.getSelectionModel().getSelectedItem();
+        LanguageProvider provider = new LanguageProvider(selected);
+        map = provider.getTexts();
+        setTexts();
+    }
+
+    public void setTexts() {
+        App.stg.setTitle(map.get("stage_title"));
+        btnSet.setText(map.get("btn_set"));
+        btnCancel.setText(map.get("btn_cancel"));
+        lblSubTitle.setText(map.get("lbl_sub_title"));
+        header.setText(map.get("header"));
+    }
 }

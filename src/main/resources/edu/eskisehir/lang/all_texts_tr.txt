@@ -1,0 +1,5 @@
+header=Otomatik Bilgisayar Kapatıcı
+stage_title=Otomatik Bilgisayar Kapatıcı
+lbl_sub_title=Kaç dakika sonra bilgisayar kapansın?
+btn_set=Ayarla
+btn_cancel=İptal et

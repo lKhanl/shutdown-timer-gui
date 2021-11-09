@@ -1,0 +1,5 @@
+header=Shutdown Timer
+stage_title=Shutdown Timer
+lbl_sub_title=How many minutes will pc shut down?
+btn_set=Set Timer
+btn_cancel=Cancel Timer
