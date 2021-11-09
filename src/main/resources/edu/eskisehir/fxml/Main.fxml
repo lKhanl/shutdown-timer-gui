@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.ToggleSwitch?>
 
 <AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.eskisehir.MainController">
    <children>
@@ -27,7 +28,9 @@
             <Button fx:id="btnCancel" layoutX="324.0" layoutY="214.0" mnemonicParsing="false" onAction="#cancelTimer" styleClass="cancelbtn" text="İptal et" />
             <Label fx:id="lbl" layoutX="20.0" layoutY="218.0" />
             <ComboBox fx:id="comboBox" layoutX="420.0" layoutY="12.0" onAction="#selectLanguage" prefHeight="25.0" prefWidth="66.0" />
-            <Label layoutX="287.0" layoutY="16.0" prefHeight="17.0" prefWidth="127.0" text="Select your Language :" />
+            <Label fx:id="lblLang" layoutX="287.0" layoutY="16.0" prefHeight="17.0" prefWidth="127.0" text="Select your Language :" />
+            <Button fx:id="btnExit" layoutX="440.0" layoutY="261.0" mnemonicParsing="false" onAction="#exit" styleClass="exitBtn" text="Button" />
+            <ToggleSwitch fx:id="switchMode" layoutY="7.0" onMouseClicked="#changeMode" />
          </children></Pane>
    </children>
 </AnchorPane>
