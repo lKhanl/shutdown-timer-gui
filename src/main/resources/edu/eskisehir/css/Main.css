@@ -1,0 +1,18 @@
+.setbtn:hover {
+    -fx-background-color: #28a928;
+}
+
+.setbtn {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+    -fx-background-radius: 20;
+}
+
+.cancelbtn {
+    -fx-background-color: lightblue;
+    -fx-background-radius: 20;
+}
+
+.cancelbtn:hover {
+    -fx-background-color: #7ea8ce;
+}
