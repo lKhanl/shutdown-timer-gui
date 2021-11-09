@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
@@ -24,13 +25,9 @@ public class App extends Application {
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-
         stage.setResizable(false);
         stage.setTitle("Otomatik Bilgisayar Kapatıcı");
-
-
-
-
+        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("images/icon.png"))));
         stage.show();
     }
 
