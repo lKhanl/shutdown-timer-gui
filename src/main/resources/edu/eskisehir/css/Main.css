@@ -16,3 +16,12 @@
 .cancelbtn:hover {
     -fx-background-color: #7ea8ce;
 }
+
+.exitBtn{
+    -fx-background-color: #f62e2e;
+    -fx-text-fill: white;
+}
+
+.exitBtn:hover{
+    -fx-background-color: #d54f4f;
+}
