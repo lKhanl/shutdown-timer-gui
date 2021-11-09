@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.eskisehir.MainController">
+   <children>
+      <Pane fx:id="pane" prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: lightgray;">
+         <children>
+            <Button fx:id="btnSet" layoutX="337.0" layoutY="175.0" mnemonicParsing="false" onAction="#setTimer" style="-fx-background-color: green; -fx-text-fill: white; -fx-background-radius: 20;" text="Ayarla" />
+            <Label layoutX="20.0" layoutY="137.0" text="Kaç dakika sonra bilgisayar kapansın?">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="139.0" layoutY="36.0" text="Otomatik Bilgisayar Kapatıcı" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtTime" layoutX="287.0" layoutY="135.0" />
+            <Button fx:id="btnCancel" layoutX="297.0" layoutY="214.0" mnemonicParsing="false" onAction="#cancelTimer" style="-fx-background-color: lightblue; -fx-background-radius: 20;" text="Zamanlayıcıyı iptal et" />
+            <Label fx:id="lbl" layoutX="20.0" layoutY="218.0" />
+         </children></Pane>
+   </children>
+</AnchorPane>
